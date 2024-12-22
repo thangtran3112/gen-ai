@@ -44,3 +44,12 @@ or
 ```bash
 pip install faiss-gpu-cu12
 ```
+
+## Setup Environment for LangChain
+
+- [LangSmith Environment Setup](https://docs.smith.langchain.com/#3-set-up-your-environment)
+
+```.env
+  export LANGCHAIN_TRACING_V2=true
+  export LANGCHAIN_API_KEY=<your-api-key>
+```
