@@ -31,3 +31,16 @@ or running directly from remote source:
 ```
 
 - `ollama pull”` fetches a model or image from a remote source. “ollama run” executes that model locally once it has already been pulled.
+
+## [Faiss installation](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md)
+
+```bash
+# GPU(+CPU) version
+$ conda install -c pytorch -c nvidia faiss-gpu=1.9.0
+```
+
+or
+
+```bash
+pip install faiss-gpu-cu12
+```

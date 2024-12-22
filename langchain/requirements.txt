@@ -1,4 +1,4 @@
-# python=3.12
+# python=3.12.8
 langchain>=0.3.0,<0.4.0
 python-dotenv
 ipykernel
@@ -15,3 +15,5 @@ chromadb
 langchain-ollama
 langchain_huggingface
 sentence_transformers
+faiss-cpu
+langchain_chroma
