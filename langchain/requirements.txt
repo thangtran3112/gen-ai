@@ -12,3 +12,6 @@ lxml
 langchain_openai
 langchain-text-splitters
 chromadb
+langchain-ollama
+langchain_huggingface
+sentence_transformers
