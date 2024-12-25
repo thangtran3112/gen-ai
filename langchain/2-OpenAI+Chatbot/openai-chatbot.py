@@ -32,7 +32,7 @@ api_key=st.sidebar.text_input("Enter your Open AI API Key:",type="password")
 engine=st.sidebar.selectbox("Select Open AI model",["gpt-4o","gpt-4-turbo","gpt-4"])
 
 ## Adjust response parameter
-temperature=st.sidebar.slider("Temperature",min_value=0.0,max_value=1.0,value=0.7)
+temperature=st.sidebar.slider("Temperature",min_value=0.0,max_value=1.0,value=0.2)
 max_tokens = st.sidebar.slider("Max Tokens", min_value=50, max_value=300, value=150)
 
 ## MAin interface for user input
@@ -41,7 +41,24 @@ user_input=st.text_input("You:")
 
 openai.api_key=api_key
 
-llm=ChatOpenAI(model=engine)
+
+#    - Temperature = 0.0
+#      - More deterministic
+#      - Focus on highest probability tokens
+#      - Best for factual/consistent answers
+   
+#    - Temperature = 1.0
+#      - More random/creative
+#      - Diverse word choices
+#      - Better for creative writing
+
+
+
+llm = ChatOpenAI(
+    model=engine,
+    temperature=temperature,
+    max_tokens=max_tokens
+)
 output_parser=StrOutputParser()
 chain=prompt|llm|output_parser
 

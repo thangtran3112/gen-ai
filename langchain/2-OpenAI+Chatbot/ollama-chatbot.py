@@ -28,14 +28,20 @@ st.title("Enhanced Q&A Chatbot With OpenAI")
 llm=st.sidebar.selectbox("Select Open Source model",["llama3"])
 
 ## Adjust response parameter
-temperature=st.sidebar.slider("Temperature",min_value=0.0,max_value=1.0,value=0.7)
-max_tokens = st.sidebar.slider("Max Tokens", min_value=50, max_value=300, value=150)
+temperature=st.sidebar.slider("Temperature",min_value=0.0,max_value=1.0,value=0.2)
+max_tokens = st.sidebar.slider("Max Tokens", min_value=100, max_value=500, value=200)
 
 ## MAin interface for user input
 st.write("Goe ahead and ask any question")
 user_input=st.text_input("You:")
 
-llm=Ollama(model=llm)
+
+# Update Ollama initialization with parameters
+llm=Ollama(
+    model=llm,
+    temperature=temperature,
+    num_ctx=max_tokens  # Ollama uses num_ctx instead of max_tokens
+)
 output_parser=StrOutputParser()
 chain=prompt|llm|output_parser
 
