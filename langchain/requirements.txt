@@ -27,3 +27,4 @@ fastapi
 langserve
 sse_starlette
 langchain_community
+bs4

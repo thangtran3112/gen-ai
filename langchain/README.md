@@ -62,3 +62,27 @@ pip install faiss-gpu-cu12
 
 - `langserve` will expose the SWAGGER docs at `127.0.0.1/docs`
 - ![Sample Langserve OpenAPI docs](./langserve.png)
+
+## Ollama Local Embeddings
+
+```python
+from langchain_community.embeddings import OllamaEmbeddings
+
+embeddings = OllamaEmbeddings(model="llama2")  # or specific llama3 model name
+```
+
+## Online Embeddings
+
+- Example: OpenAIEmbeddings, HuggingFace
+- The "all-MiniLM-L6-v2" is a sentence transformer model that works independently of LLM
+- This can also be embedded locally:
+
+```python
+  %pip install -U sentence-transformers
+  from sentence_transformers import SentenceTransformer
+  sentences = ["This is an example sentence", "Each sentence is converted"]
+
+  model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+  embeddings = model.encode(sentences)
+  print(embeddings)
+```
