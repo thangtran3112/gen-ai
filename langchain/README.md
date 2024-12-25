@@ -53,3 +53,12 @@ pip install faiss-gpu-cu12
   export LANGCHAIN_TRACING_V2=true
   export LANGCHAIN_API_KEY=<your-api-key>
 ```
+
+## Using LangServe to create REST API for GenAI applications
+
+```bash
+  python serve.py
+```
+
+- `langserve` will expose the SWAGGER docs at `127.0.0.1/docs`
+- ![Sample Langserve OpenAPI docs](./langserve.png)
