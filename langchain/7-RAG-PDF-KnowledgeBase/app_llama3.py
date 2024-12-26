@@ -40,7 +40,7 @@ prompt=ChatPromptTemplate.from_template(
 def create_vector_embedding():
     if "vectors" not in st.session_state:
         st.session_state.embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-        st.session_state.loader=PyPDFDirectoryLoader("research_papers") ## Data Ingestion step
+        st.session_state.loader=PyPDFDirectoryLoader("../pdf-assets") ## Data Ingestion step
         st.session_state.docs=st.session_state.loader.load() ## Document Loading
         st.session_state.text_splitter=RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
         # Only use the first 100 documents for demonstration purposes

@@ -57,7 +57,7 @@ session_state = SessionState()
 def create_vector_embedding():
     if session_state.vectors is None:
         session_state.embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-        session_state.loader=PyPDFDirectoryLoader("research_papers") 
+        session_state.loader=PyPDFDirectoryLoader("../pdf-assets") 
         session_state.docs=session_state.loader.load() ## Document Loading
         session_state.text_splitter=RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
         # Only use the first 100 documents for demonstration purposes

@@ -27,7 +27,5 @@ fastapi
 langserve
 sse_starlette
 langchain_community
-bs4
-sentence_transformers
 openai
 duckdb
