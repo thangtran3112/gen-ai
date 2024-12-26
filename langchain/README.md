@@ -86,3 +86,7 @@ embeddings = OllamaEmbeddings(model="llama2")  # or specific llama3 model name
   embeddings = model.encode(sentences)
   print(embeddings)
 ```
+
+## LangChain tools
+
+- [List of built-in and integration tools](https://python.langchain.com/docs/integrations/tools/)
