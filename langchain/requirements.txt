@@ -29,3 +29,4 @@ sse_starlette
 langchain_community
 openai
 duckdb
+duckduckgo-search
