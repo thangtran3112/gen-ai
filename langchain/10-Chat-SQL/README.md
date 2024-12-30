@@ -1,9 +1,10 @@
 # Chat with SQL
 
+- [Deployment Link](https://gen-ai-8tyoexmjh3w9wlv33qrube.streamlit.app/)
 - Sample local SQLLite Database [student.db](./student.db)
 - Connect to cloud or remote MySQL or Postgres SQL servers
 
-## Deployment
+## Installation
 
 ```zsh
 pip install -r requirements.txt
@@ -26,3 +27,9 @@ pip install -r requirements.txt
 
 - Ask AI about which Home in Airbnb listing, with price less than 500$ a night, given a Postgres database
   ![PostgresChat](./PostgresChat.png)
+
+- Give your own `Postgres` or `MySQL` connect, and ask AI about your data
+
+## Application of chat to SQL
+
+- Ecommerce: allows customers to ask about their orders, finding products
