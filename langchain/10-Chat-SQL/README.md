@@ -1,7 +1,6 @@
 # Chat with SQL
 
 - [Deployment Link](https://gen-ai-8tyoexmjh3w9wlv33qrube.streamlit.app/)
-- Sample local SQLLite Database [student.db](./student.db)
 - Connect to cloud or remote MySQL or Postgres SQL servers
 
 ## Installation
@@ -22,14 +21,30 @@ pip install -r requirements.txt
 
 ## Sample query
 
-- Ask the AI about which students are studying data sciences (Using local SQLLite)
-  ![Sample](./ChatWithSQLLite.png)
+- Ask the AI about which students are studying data sciences (Using local SQLLite).
+- Sample local SQLLite Database [student.db](./student.db)
+
+```sql
+  Krish,Data Science,A,90
+  John,Data Science,B,100
+  Mukesh,Data Science,A,86
+  Jacob,DEVOPS,A,50
+  Dipesh,DEVOPS,A,35
+```
+
+![Chat With SQL Lite](./ChatWithSQLLite.png)
 
 - Ask AI about which Home in Airbnb listing, with price less than 500$ a night, given a Postgres database
-  ![PostgresChat](./PostgresChat.png)
+
+![PostgresChat](./PostgresChat.png)
 
 - Give your own `Postgres` or `MySQL` connect, and ask AI about your data
 
-## Application of chat to SQL
+## Possible usages
 
 - Ecommerce: allows customers to ask about their orders, finding products
+
+## Alternatives
+
+- Using prompt template, to let AI knows the schema and context, and limit access to user-authorized data only
+- Instead of chatting with SQL, we can also embed the whole SQL database entries into vectorstore. This will also allow `similarity search`
