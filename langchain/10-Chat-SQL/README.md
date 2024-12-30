@@ -21,5 +21,8 @@ pip install -r requirements.txt
 
 ## Sample query
 
-- Ask the AI about which students are studying data sciences
-  ![Sample](./ChatWithSQL.png)
+- Ask the AI about which students are studying data sciences (Using local SQLLite)
+  ![Sample](./ChatWithSQLLite.png)
+
+- Ask AI about which Home in Airbnb listing, with price less than 500$ a night, given a Postgres database
+  ![PostgresChat](./PostgresChat.png)
