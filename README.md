@@ -1,4 +1,4 @@
-# E2E GenAI applications on custom Knowledgdbase
+# E2E GenAI applications on custom Knowledge base 
 - In enterprise environment, we could have lots of internal data sources, such as Wiki, Confluences, PDF, Databases
 - GenAI applications can work securedly with company Databases and documents to provide smart Automation flows
 - This repository contains various examples, models and setup with custom AI applications.
