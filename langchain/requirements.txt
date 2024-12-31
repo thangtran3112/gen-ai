@@ -33,3 +33,7 @@ duckduckgo-search
 psycopg2-binary
 pymongo
 urllib3
+cassio
+datasets
+tiktoken
+PyPDF2
