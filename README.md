@@ -6,8 +6,10 @@
 ## Teckstacks
 - AI interacting with SQL, MongoDB, Cassandra NoSQL
 - Vectorstore for semantic/hybrid search with Astra DB, Chroma DB, Faiss, Postgres Vector, MongoDb Vectorstore
-- Open-source and Paid AI Models and Embeddings
+- AI Models and Embeddings, including Paid and open-source
+- Data Ingestion, including text splitter, chunks, pdf loader, website scraper with BeautifulSoup
 - Langchain framework in Python, to interact with all available Foundation models
 - HuggingFace, Ollama, Groq API for using models
 - Expose AI backend as REST API, with LangServe, Python FastAPI. This would enables traditional Web Applications in NodeJS and Java to interact with AI Agent Backend
-- Cloud Infrastructure for private AI apps, including AWS Sagemaker, AWS Bedrocks, Nvidia NIM, etc 
+- Cloud Infrastructure for private AI apps, including AWS Sagemaker, AWS Bedrocks, Nvidia NIM, etc
+- Agents, Tools, Prompt templates to build complex AI agent with LangGraph, Langflow
