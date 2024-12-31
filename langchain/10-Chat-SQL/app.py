@@ -17,7 +17,7 @@ postgres_password=os.getenv("POSTGRES_PASSWORD")
 st.set_page_config(page_title="LangChain: Chat with SQL DB", page_icon="🦜")
 st.title("🦜 LangChain: Chat with any SQL DB")
 # Add README link
-st.markdown("📚 [View Instructions](https://github.com/thangtran3112/langchain/tree/main/10-Chat-SQL/README.md)")
+st.markdown("📚 [View Instructions](https://github.com/thangtran3112/gen-ai/blob/main/langchain/10-Chat-SQL/README.md)")
 
 LOCALDB="USE_LOCALDB"
 MYSQL="USE_MYSQL"
