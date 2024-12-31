@@ -42,7 +42,8 @@ elif radio_opt.index(selected_opt) == 0:
         • What is the cheapest night rate for homes in US?
         • Show me the first row from Homes table?
         • How many homes are there for vacations in the US?  
-        • What is the highest yearly rate for Data Engineer, ignoring Null values?        
+        • What is the highest yearly rate for Data Engineer, ignoring Null values?
+        • give me 10 highest yearly rate job posts, ignoring any NULL salary values ?
             """)
     pg_host = st.sidebar.text_input(
         "PostgreSQL Host",

@@ -3,6 +3,7 @@
 - [Deployment Link](https://gen-ai-8tyoexmjh3w9wlv33qrube.streamlit.app/)
 - Connect to cloud or remote MySQL or Postgres SQL servers
 - @TODO: Expose this Chat with SQL into REST API (Using FastAPI), allows other Typescript/Java Backend to query the ChatBot
+- @TODO: A Prompt template will help optimize NULL cases
 
 ## Installation
 
