@@ -20,7 +20,18 @@ pip install -r requirements.txt
   streamlit run app.py
 ```
 
-## Sample query
+## Chat with Cloud Postgres DB
+
+- Ask AI about which Home in Airbnb listing, with price less than 500$ a night, given a Postgres database
+
+![PostgresChat](./PostgresChat.png)
+
+- Give your own `Postgres` or `MySQL` connect, and ask AI about your data
+- Use my Supabase Postgres DBs to test. Schema as following:
+- ![HomeBookingDB](./HomeBookingDB.png)
+- ![JobPostingDB](./JobPostingDB.png)
+
+## SQLLite Chat with local DB
 
 - Ask the AI about which students are studying data sciences (Using local SQLLite).
 - Sample local SQLLite Database [student.db](./student.db)
@@ -34,12 +45,6 @@ pip install -r requirements.txt
 ```
 
 ![Chat With SQL Lite](./ChatWithSQLLite.png)
-
-- Ask AI about which Home in Airbnb listing, with price less than 500$ a night, given a Postgres database
-
-![PostgresChat](./PostgresChat.png)
-
-- Give your own `Postgres` or `MySQL` connect, and ask AI about your data
 
 ## Possible usages
 

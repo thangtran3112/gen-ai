@@ -12,15 +12,18 @@ from langchain_groq import ChatGroq
 import os
 import dotenv
 dotenv.load_dotenv()
+postgres_password=os.getenv("POSTGRES_PASSWORD")
 
 st.set_page_config(page_title="LangChain: Chat with SQL DB", page_icon="🦜")
-st.title("🦜 LangChain: Chat with SQL DB")
+st.title("🦜 LangChain: Chat with any SQL DB")
+# Add README link
+st.markdown("📚 [View Instructions](https://github.com/thangtran3112/langchain/tree/main/10-Chat-SQL/README.md)")
 
 LOCALDB="USE_LOCALDB"
 MYSQL="USE_MYSQL"
 POSTGRES="USE_POSTGRES"
 
-radio_opt=["Use local SQLLite Student.db","Connect to you MySQL Database","Use Postgres Database"]
+radio_opt=["Use Cloud Postgres Database","Connect to your Cloud MySQL Database","Use built-in SQLLite Student.db"]
 
 selected_opt=st.sidebar.radio(label="Choose the DB which you want to chat",options=radio_opt)
 
@@ -30,12 +33,34 @@ if radio_opt.index(selected_opt) == 1:
     mysql_user=st.sidebar.text_input("MYSQL User")
     mysql_password=st.sidebar.text_input("MYSQL password",type="password")
     mysql_db=st.sidebar.text_input("MySQL database")
-elif radio_opt.index(selected_opt) == 2:
+elif radio_opt.index(selected_opt) == 0:
     db_uri = POSTGRES
-    pg_host = st.sidebar.text_input("PostgreSQL Host")
-    pg_user = st.sidebar.text_input("PostgreSQL User")
-    pg_password = st.sidebar.text_input("PostgreSQL Password", type="password")
-    pg_db = st.sidebar.text_input("PostgreSQL Database")
+    with st.expander("PostgreSQL Connection Details & Sample Questions", expanded=True):
+        st.info("""Please provide the PostgreSQL connection details. By default, this app has read-only access to the Supabase Postgres.
+        
+        Sample questions you can ask if using the default Supabase Postgres:
+        • What is the cheapest night rate for homes in US?
+        • Show me the first row from Homes table?
+        • How many homes are there for vacations in the US?  
+        • What is the highest yearly rate for Data Engineer, ignoring Null values?        
+            """)
+    pg_host = st.sidebar.text_input(
+        "PostgreSQL Host",
+        value="aws-0-us-west-1.pooler.supabase.com:6543"
+    )
+    pg_user = st.sidebar.text_input(
+        "PostgreSQL User",
+        value="postgres.zkcvlzshthdeudzfissu"
+    )
+    pg_password = st.sidebar.text_input(
+        "PostgreSQL Password",
+        value=postgres_password,
+        type="password"
+    )
+    pg_db = st.sidebar.text_input(
+        "PostgreSQL Database",
+        value="postgres"
+    )
 else:
     db_uri=LOCALDB
 
