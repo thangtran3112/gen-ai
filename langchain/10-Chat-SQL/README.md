@@ -1,7 +1,8 @@
 # Chat with SQL
 
 - [Deployment Link](https://gen-ai-8tyoexmjh3w9wlv33qrube.streamlit.app/)
-- Connect to cloud or remote MySQL or Postgres SQL servers
+- Connect to chat with your own Cloud Postgres, MySQL databases.
+- This app by default has read-only connection to my own Postgres DB
 - @TODO: Expose this Chat with SQL into REST API (Using FastAPI), allows other Typescript/Java Backend to query the ChatBot
 - @TODO: A Prompt template will help optimize NULL cases
 
@@ -27,7 +28,6 @@ pip install -r requirements.txt
 
 ![PostgresChat](./PostgresChat.png)
 
-- Give your own `Postgres` or `MySQL` connect, and ask AI about your data
 - Use my Supabase Postgres DBs to test. Schema as following:
 - ![HomeBookingDB](./HomeBookingDB.png)
 - ![JobPostingDB](./JobPostingDB.png)
