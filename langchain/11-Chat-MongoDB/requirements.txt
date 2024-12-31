@@ -1,0 +1,6 @@
+streamlit
+pymongo
+langchain-openai
+langchain
+python-dotenv
+urllib3

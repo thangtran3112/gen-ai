@@ -31,3 +31,5 @@ openai
 duckdb
 duckduckgo-search
 psycopg2-binary
+pymongo
+urllib3

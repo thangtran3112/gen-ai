@@ -1,0 +1,86 @@
+Below are several sample user questions related to the MongoDB document provided, 
+and the corresponding MongoDB aggregation pipeline queries that can be used to fetch the desired data.
+Use them wisely.
+
+Question 1: List all easy difficulty tours with rating above 4.5
+
+Query:
+[
+  { 
+    "$match": { 
+      "difficulty": "easy",
+      "ratingsAverage": { "$gt": 4.5 }
+    }
+  },
+  {
+    "$project": {
+      "name": 1,
+      "ratingsAverage": 1,
+      "price": 1,
+      "_id": 0
+    }
+  }
+]
+
+Question 2: What are the average prices for tours grouped by difficulty level?
+
+Query:
+[
+  {
+    "$group": {
+      "_id": "$difficulty",
+      "averagePrice": { "$avg": "$price" },
+      "count": { "$sum": 1 }
+    }
+  },
+  { "$sort": { "averagePrice": -1 } }
+]
+
+Question 3: Find tours starting between April and June 2021
+
+Query:
+[
+  {
+    "$match": {
+      "startDates": {
+        "$elemMatch": {
+          "$gte": ISODate("2021-04-01"),
+          "$lt": ISODate("2021-07-01")
+        }
+      }
+    }
+  },
+  {
+    "$project": {
+      "name": 1,
+      "startDates": 1,
+      "_id": 0
+    }
+  }
+]
+
+Question 4: Get tours with duration 5 days or less, sorted by price
+
+Query:
+[
+  {
+    "$match": {
+      "duration": { "$lte": 5 }
+    }
+  },
+  {
+    "$sort": { "price": 1 }
+  },
+  {
+    "$project": {
+      "name": 1,
+      "duration": 1,
+      "price": 1,
+      "_id": 0
+    }
+  }
+]
+
+
+Each of these queries is designed to run within MongoDB's aggregation framework to extract specific information based on the user's questions.
+ The `$project` step is used to format the output to include only relevant fields. 
