@@ -1,8 +1,7 @@
-import json
-import os
-import sys
+from typing import List
 import boto3
 import streamlit as st
+from langchain_core.documents import Document
 
 ## We will be suing Titan Embeddings Model To generate Embedding
 
@@ -30,15 +29,22 @@ bedrock_embeddings=BedrockEmbeddings(model_id="amazon.titan-embed-text-v2:0",cli
 
 
 ## Data ingestion
-def data_ingestion():
-    loader=PyPDFDirectoryLoader("data")
-    documents=loader.load()
-
-    # - in our testing Character split works better with this PDF data set
-    text_splitter=RecursiveCharacterTextSplitter(chunk_size=10000,
-                                                 chunk_overlap=1000)
+def data_ingestion() -> List[Document]:
+    """Load and split PDF documents from data directory.
     
-    docs=text_splitter.split_documents(documents)
+    Returns:
+        List[Document]: List of document chunks after splitting
+    """
+    loader: PyPDFDirectoryLoader = PyPDFDirectoryLoader("data")
+    documents: List[Document] = loader.load()
+
+    # In our testing Character split works better with this PDF data set
+    text_splitter: RecursiveCharacterTextSplitter = RecursiveCharacterTextSplitter(
+        chunk_size=10000, 
+        chunk_overlap=1000
+    )
+    
+    docs: List[Document] = text_splitter.split_documents(documents)
     return docs
 
 ## Vector Embedding and vector store
@@ -68,7 +74,7 @@ prompt_template = """
 
 Human: Use the following pieces of context to provide a 
 concise answer to the question at the end but usse atleast summarize with 
-250 words with detailed explaantions. If you don't know the answer, 
+250 words with detailed explanations. If you don't know the answer, 
 just say that you don't know, don't try to make up an answer.
 <context>
 {context}
@@ -92,7 +98,7 @@ def get_response_llm(llm,vectorstore_faiss,query):
     return_source_documents=True,
     chain_type_kwargs={"prompt": PROMPT}
 )
-    answer=qa({"query":query})
+    answer = qa.invoke({"query": query})
     return answer['result']
 
 
