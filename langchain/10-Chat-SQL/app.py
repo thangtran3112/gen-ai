@@ -71,10 +71,6 @@ if not db_uri:
 if not api_key:
     st.info("Please add the groq api key to environment variables")
 
-## LLM model
-# llm=ChatGroq(groq_api_key=api_key,model_name="Llama3-8b-8192",streaming=True)
-llm=ChatGroq(groq_api_key=api_key,model_name="deepseek-r1-distill-llama-70b",streaming=True)
-
 @st.cache_resource(ttl="2h")
 def configure_sqlite() -> SQLDatabase:
     dbfilepath=(Path(__file__).parent/"student.db").absolute()
@@ -107,6 +103,12 @@ if db_uri==POSTGRES:
     db=configure_postgres(pg_host,pg_user,pg_password,pg_db)
 if db_uri==LOCALDB:
     db=configure_sqlite()
+
+## LLM model
+model_options = ["deepseek-r1-distill-llama-70b", "Llama3-8b-8192", "gemma2-9b-it", "mixtral-8x7b-32768"]
+selected_model = st.sidebar.selectbox("Select LLM Model", model_options, index=0)
+# llm=ChatGroq(groq_api_key=api_key,model_name="Llama3-8b-8192",streaming=True)
+llm=ChatGroq(groq_api_key=api_key,model_name=selected_model,streaming=True)
 
 ## toolkit
 toolkit=SQLDatabaseToolkit(db=db,llm=llm)
