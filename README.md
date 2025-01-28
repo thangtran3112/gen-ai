@@ -1,9 +1,9 @@
 ## List of custom-knowledge-based applications
 
--   [Chat with any SQL database no-prompt-engineering](https://gen-ai-8tyoexmjh3w9wlv33qrube.streamlit.app/)
+-   [Chat with any SQL database no-prompt-engineering](https://10-chat-groq-with-sql.streamlit.app/)
 -   [Chat with Rest API with Spotify Rest API as example](./langchain/14-Chat-Rest-API/openapi.ipynb)
 -   [Chat with Pdf or documents ingestion](./langchain/8-RAG-PDF-Conversation-History/)
--   [Chat with MongoDB](./langchain/11-Chat-MongoDB/)
+-   [Chat with Mongo DB using prompt engineering](https://11-chat-with-mongo-db.streamlit.app/) with [Source code link](./langchain/11-Chat-MongoDB/)
 
 ## GenAI frameworks and applications on custom KnowledgeBase
 
