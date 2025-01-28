@@ -37,7 +37,7 @@ st.title("Talk to MongoDB")
 # Add README link
 st.markdown("📚 [View Instructions](https://github.com/thangtran3112/gen-ai/blob/main/langchain/11-Chat-MongoDB/README.md)")
 
-with io.open("sample.txt","r",encoding="utf-8")as f1:
+with io.open("./sample.txt","r",encoding="utf-8")as f1:
     sample=f1.read()
     f1.close()
 
