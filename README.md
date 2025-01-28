@@ -2,7 +2,8 @@
 
 -   [Chat with any SQL database no-prompt-engineering](https://gen-ai-8tyoexmjh3w9wlv33qrube.streamlit.app/)
 -   [Chat with Rest API with Spotify Rest API as example](./langchain/14-Chat-Rest-API/openapi.ipynb)
--   [Chat with Pdf or documents ingestion]()
+-   [Chat with Pdf or documents ingestion](./langchain/8-RAG-PDF-Conversation-History/)
+-   [Chat with MongoDB](./langchain/11-Chat-MongoDB/)
 
 ## GenAI frameworks and applications on custom KnowledgeBase
 
