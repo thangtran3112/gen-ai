@@ -27,9 +27,9 @@ llm = ChatNVIDIA(
 )
 
 
-# Testing the NVIDIA API
-for chunk in llm.stream([{"role":"user","content":"Write a limerick about the wonders of GPU computing."}]): 
-  print(chunk.content, end="")
+# Testing the NVIDIA API, uncomment if needed
+# for chunk in llm.stream([{"role":"user","content":"Write a limerick about the wonders of GPU computing."}]): 
+#   print(chunk.content, end="")
 
 # Store the vectors database in the session state
 def vector_embedding():
