@@ -244,12 +244,12 @@ tools = [
 ]
 
 if "messages" not in st.session_state or st.sidebar.button("Clear message history"):
-    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
+    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you? about our tour database"}]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
-user_query=st.chat_input(placeholder="What is the cheapest tour according the database?")
+user_query=st.chat_input(placeholder="how many tours do we have?")
 
 # Initialize agent
 agent = initialize_agent(
