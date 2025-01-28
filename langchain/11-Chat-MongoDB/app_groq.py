@@ -18,14 +18,6 @@ api_key=os.getenv("GROQ_API_KEY")
 if not api_key:
     st.info("Please add the groq api key to environment variables")
 
-## LLM model
-llm = ChatGroq(
-    temperature=0,  # Make output deterministic
-    streaming=True,
-    api_key=api_key,
-    model_name="mixtral-8x7b-32768"
-)
-
 # mongo client
 username=os.getenv("MONGO_ATLAS_USER")
 password=os.getenv("MONGO_ATLAS_PASSWORD")
@@ -40,7 +32,10 @@ client=MongoClient(uri)
 db=client[database_name]
 collection=db[collection_name]
 
-st.title("talk to MongoDB")
+st.title("Talk to MongoDB")
+
+# Add README link
+st.markdown("📚 [View Instructions](https://github.com/thangtran3112/gen-ai/blob/main/langchain/11-Chat-MongoDB/README.md)")
 
 with io.open("sample.txt","r",encoding="utf-8")as f1:
     sample=f1.read()
@@ -91,6 +86,17 @@ query_with_prompt=PromptTemplate(
     template=prompt,
     input_variables=["question","sample"]
 )
+
+model_options = ["deepseek-r1-distill-llama-70b", "Llama3-8b-8192", "gemma2-9b-it", "mixtral-8x7b-32768"]
+selected_model = st.selectbox("Select AI Model", model_options, index=0)
+## LLM model
+llm = ChatGroq(
+    temperature=0,  # Make output deterministic
+    streaming=True,
+    api_key=api_key,
+    model_name=selected_model
+)
+
 ## LLM Chain
 # Convert LLMChain to RunnableSequence
 chain = (

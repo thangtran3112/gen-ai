@@ -1,7 +1,7 @@
 # Tutorial for Chatting with MongoDB using prompt template
 
-- Simple solution with OpenAI: [app-openAI.py](./app_openAI.py)
-- Maintain chat history with langchain tools and agents with `mixtral` open-source model: [app-groq-mixtral](./app_groq_mixtral.py)
+-   Maintain chat history with langchain tools and agents with Deekseek open-source model: [app-groq](./app_groq.py)
+-   Simple solution with OpenAI: [app-openAI.py](./app_openAI.py)
 
 ## Reference Youtube Tutorial
 
@@ -9,13 +9,13 @@
 
 ## Testing Mongo Schema
 
-- Hiking tour database, Database=`amazing`, collection=`tours`
-  ![amazing.tours](./Database-Collection.png)
+-   Hiking tour database, Database=`amazing`, collection=`tours`
+    ![amazing.tours](./Database-Collection.png)
 
-- Chatbot query example:
-  ![query sample](./query-example.png)
+-   Chatbot query example:
+    ![query sample](./query-example.png)
 
-- JSON structure of tours:
+-   JSON structure of tours:
 
 ```JSON
 {
@@ -77,6 +77,6 @@
 
 ## Notes
 
-- This method does not embed vectors to MongoDB, thus it is not optimized for `semantic search`
-- Unlike SQL database, where AI agent can retrieve schema automatically, MongoDB query require prompt engineering.
-- Alternative: use a vectorstore retriever to create a RAG chain. See [6-Chatbot-History](../6-Chatbot-History/3-History_Retriever-Conversations.ipynb)
+-   This method does not embed vectors to MongoDB, thus it is not optimized for `semantic search`
+-   Unlike SQL database, where AI agent can retrieve schema automatically, MongoDB query require prompt engineering.
+-   Alternative: use a vectorstore retriever to create a RAG chain. See [6-Chatbot-History](../6-Chatbot-History/3-History_Retriever-Conversations.ipynb)
