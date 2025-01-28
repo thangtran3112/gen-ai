@@ -37,9 +37,98 @@ st.title("Talk to MongoDB")
 # Add README link
 st.markdown("📚 [View Instructions](https://github.com/thangtran3112/gen-ai/blob/main/langchain/11-Chat-MongoDB/README.md)")
 
-with io.open("./sample.txt","r",encoding="utf-8")as f1:
-    sample=f1.read()
-    f1.close()
+# This sample.txt will not be available in stream lit cloud
+# with io.open("./sample.txt","r",encoding="utf-8")as f1:
+#     sample=f1.read()
+#     f1.close()
+sample = """
+Below are several sample user questions related to the MongoDB document provided, 
+and the corresponding MongoDB aggregation pipeline queries that can be used to fetch the desired data.
+Use them wisely.
+
+Question 1: List all easy difficulty tours with rating above 4.5
+
+Query:
+[
+  { 
+    "$match": { 
+      "difficulty": "easy",
+      "ratingsAverage": { "$gt": 4.5 }
+    }
+  },
+  {
+    "$project": {
+      "name": 1,
+      "ratingsAverage": 1,
+      "price": 1,
+      "_id": 0
+    }
+  }
+]
+
+Question 2: What are the average prices for tours grouped by difficulty level?
+
+Query:
+[
+  {
+    "$group": {
+      "_id": "$difficulty",
+      "averagePrice": { "$avg": "$price" },
+      "count": { "$sum": 1 }
+    }
+  },
+  { "$sort": { "averagePrice": -1 } }
+]
+
+Question 3: Find tours starting between April and June 2021
+
+Query:
+[
+  {
+    "$match": {
+      "startDates": {
+        "$elemMatch": {
+          "$gte": ISODate("2021-04-01"),
+          "$lt": ISODate("2021-07-01")
+        }
+      }
+    }
+  },
+  {
+    "$project": {
+      "name": 1,
+      "startDates": 1,
+      "_id": 0
+    }
+  }
+]
+
+Question 4: Get tours with duration 5 days or less, sorted by price
+
+Query:
+[
+  {
+    "$match": {
+      "duration": { "$lte": 5 }
+    }
+  },
+  {
+    "$sort": { "price": 1 }
+  },
+  {
+    "$project": {
+      "name": 1,
+      "duration": 1,
+      "price": 1,
+      "_id": 0
+    }
+  }
+]
+
+
+Each of these queries is designed to run within MongoDB's aggregation framework to extract specific information based on the user's questions.
+ The `$project` step is used to format the output to include only relevant fields. 
+"""
 
 prompt="""
         you are a very intelligent AI assitasnt who is expert in identifying relevant questions fro user
