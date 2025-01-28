@@ -4,3 +4,4 @@ langchain-openai
 langchain
 python-dotenv
 urllib3
+langchain_groq
